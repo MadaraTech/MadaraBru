@@ -3,6 +3,11 @@ package jtm.extra01;
 public class GetOne {
 
 	public int iterations(int number) {
+		
+		
+		
+		
+		
 		// TODO #1: Implement method which processes the passed positive number
 		// value until it's
 		// reduced to 1.

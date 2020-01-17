@@ -15,7 +15,7 @@ public class Array {
 		// Hint: use Arrays.sort(...) from
 		// https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html
 		// START
-
+		Integer.parseInt(args[13]);
 		// END
 	}
 
