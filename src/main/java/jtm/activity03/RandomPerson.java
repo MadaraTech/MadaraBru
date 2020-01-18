@@ -16,6 +16,7 @@ public class RandomPerson {
 	private float weight;
 	private boolean isFemale;
 	private char smile;
+	
 	// END
 
 	// TODO Generate getters and setters for all private fields of the class
