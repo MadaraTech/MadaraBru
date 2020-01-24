@@ -1,9 +1,57 @@
 package jtm.activity04;
 
 public class Road {
+	
+	
 	private String from; // Start point
 	private String to; // End point
 	private int distance; // distance in km
+	
+	public Road(String from, String to, int distance) {
+		super();
+		this.from = from;
+		this.to = to;
+		this.distance = distance;
+	}
+
+	public Road() {
+		this.from = " ";
+		this.to = " ";
+		this.distance = 0;
+	};
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+	public void setTo(String to) {
+		this.to = to;
+	}
+
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+
+	public String getTo() {
+		return to;
+	}
+
+	public int getDistance() {
+		return distance;
+	}
+
+	@Override
+	public String toString() {
+		return from + " — " + to + ", " + distance + "km";
+	}
+
+	}
+	
+	
 
 	/*- TODO #1
 	 * Select menu Source — Generate Constructor using Fields...
@@ -32,4 +80,4 @@ public class Road {
 	 */
 
 
-}
+

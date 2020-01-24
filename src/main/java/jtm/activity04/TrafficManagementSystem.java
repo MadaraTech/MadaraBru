@@ -13,32 +13,37 @@ public class TrafficManagementSystem {
 	public static void initSystem(int roads, int transports) {
 		addRoads(roads);
 		addTransport(transports);
-	}
+			}
 
-	public static Transport[] getTransports() {
-		// TODO return required value
-		return null;
-	}
+		public static Transport[] getTransports() {
+			// TODO return required value
+			return transports;
+		}
 
-	public static void addTransport(int i) {
-		// TODO create new array of transports in size of passed value
-	}
+		public static void addTransport(int i) {
+			// TODO create new array of transports in size of passed value
+			transports = new Transport [i];
+		}
 
-	public static void setVehicle(Transport transport, int i) {
-		// TODO set passed transport into transports array cell of passed index
-	}
+		public static void setVehicle(Transport transport, int i) {
+			// TODO set passed transport into transports array cell of passed index
+			transports[i] = transport;
+			}
+			
 
-	public static void addRoads(int i) {
-		// TODO create new array of roads in size of passed value
-	}
+		public static void addRoads(int i) {
+			// TODO create new array of roads in size of passed value
+			roads = new Road [i];
+		}
 
-	public static Road[] getRoads() {
-		// TODO return required value
-		return null;
-	}
+		public static Road[] getRoads() {
+			// TODO return required value
+			return roads;
+		}
 
-	public static void setRoad(Road road, int i) {
-		// TODO set passed road into passed cell of roads array
-	}
+		public static void setRoad(Road road, int i) {
+			// TODO set passed road into passed cell of roads array
+			roads[i] = road;
+		}
 
-}
+	}
