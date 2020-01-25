@@ -21,43 +21,43 @@ public class RandomPerson {
 
 	// TODO Generate getters and setters for all private fields of the class
 	// START
-	private String getName() {
+	public String getName() {
 		return name;
 	}
 
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	private int getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	private void setAge(int age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	private float getWeight() {
+	public float getWeight() {
 		return weight;
 	}
 
-	private void setWeight(float weight) {
+	public void setWeight(float weight) {
 		this.weight = weight;
 	}
 
-	private boolean isFemale() {
+	public boolean isFemale() {
 		return isFemale;
 	}
 
-	private void setFemale(boolean isFemale) {
+	public void setFemale(boolean isFemale) {
 		this.isFemale = isFemale;
 	}
 
-	private char getSmile() {
+	public char getSmile() {
 		return smile;
 	}
 
-	private void setSmile(char smile) {
+	public void setSmile(char smile) {
 		this.smile = smile;
 	}
 
