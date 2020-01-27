@@ -1,4 +1,6 @@
-package jtm.activity03;import java.util.ArrayList;/**
+package jtm.activity03;
+import java.util.ArrayList;
+/**
  * Black Knight is brave soldier who fights till he is alive. He doesn't bother
  * if some of his arms or legs are cut off. You can kill him only when he lose
  * head. More info at:
