@@ -49,7 +49,7 @@ public class Zodiac {
 	public static void main(String[] args) {
 		// HINT: you can use main method to test your getZodiac method with
 		// different parameters
-		System.out.println(getZodiac(3, 5));
+		System.out.println(getZodiac(13, 13));
 	}
 
 }
