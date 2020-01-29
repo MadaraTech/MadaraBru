@@ -15,7 +15,6 @@ public class Human implements Humanoid {
 			this(42);
 		
 		}
-
 	@Override
 	public int getWeight() {
 
@@ -60,7 +59,6 @@ public class Human implements Humanoid {
 
 	@Override
 	public String isAlive() {
-
 		if (this.alive == true) {
 			return "Alive";
 		} else {
