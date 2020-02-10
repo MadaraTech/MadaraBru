@@ -1,5 +1,8 @@
 package jtm.activity09;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
 
 /*- TODO #2
  * Implement Iterator interface with Orders class
@@ -30,6 +33,19 @@ package jtm.activity09;
  */
 
 public class Orders {
+	
+	private List<Order> orders;
+	private ListIterator<Order> iterator;
+	
+	public Orders() {
+		this.orders = new LinkedList<>();
+		this.iterator = orders.listIterator();
+	}
+	
+	public void add(Order item) {
+		this.iterator.add(item);
+		this.iterator.previous();
+	}
 	/*-
 	 * TODO #1
 	 * Create data structure to hold:
@@ -40,4 +56,8 @@ public class Orders {
 	 *   2. when constructing list of orders, set number of current order to -1
 	 *      (which is usual approach when working with iterateable collections).
 	 */
+	public List<Order> getItemsList() {
+		return orders;
+		
+	}
 }

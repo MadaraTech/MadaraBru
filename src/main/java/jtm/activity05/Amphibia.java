@@ -1,25 +1,27 @@
 package jtm.activity05;
 
 import jtm.activity04.Road;
-import jtm.activity04.Transport;
 
-public class Amphibia extends Transport {
-	private Ship ship;
-	private Vehicle vehicle;
+public class Amphibia extends Vehicle {
+
+	private byte sails;
+	
 
 	public Amphibia(String id, float consumption, int tankSize, byte sails, int wheels) {
-		super(id, consumption, tankSize);
-		this.ship = new Ship(id, sails, wheels);
-		this.vehicle = new Vehicle(id, consumption, tankSize, wheels);
+		super(id, consumption, tankSize, wheels);
+		this.sails = sails;
+		
 	}
 
 	@Override
 	public String move(Road road) {
-		// return super.move(road);
-		if (road.getClass() == Road.class) {
-			return this.vehicle.move(road);
+		if ((road.getClass() == Road.class)) {
+			super.move(road);
+			return getId() + " Amphibia is driving on " + road.toString() + " with " + wheels + " wheels";
 		} else {
-			return this.ship.move(road);
+			
+			return getId() + " Amphibia is sailing on " + road.toString() + " with " + sails + " sails";
 		}
+
 	}
 }

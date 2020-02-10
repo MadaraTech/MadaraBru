@@ -6,7 +6,7 @@ import jtm.activity04.Transport;
 public class Ship extends Transport {
 	protected byte sails;
 
-	public Ship(String id, float consumption, int tankSize) {
+	public Ship(String id, byte sails) {
 		// super(id, consumption, tankSize);
 		// 
 		// TODO Auto-generated constructor stub
@@ -24,3 +24,4 @@ public class Ship extends Transport {
 		return this.getType() + " is sailing on " + road.toString() + " with " + this.sails + " sails";
 	}
 }// return Cannot sail on (Road as String) if it is not WaterRoad.
+
