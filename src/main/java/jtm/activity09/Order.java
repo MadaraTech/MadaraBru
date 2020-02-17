@@ -1,4 +1,8 @@
-package jtm.activity09;import java.util.Objects;/*- TODO #1
+package jtm.activity09;
+
+import java.util.Objects;
+
+/*- TODO #1
  * Implement Comparable interface with Order class
  * Hint! Use generic type of comparable items in form: Comparable<Order>
  *
@@ -21,10 +25,13 @@ package jtm.activity09;import java.util.Objects;/*- TODO #1
  *
  * 3. Also Ensure that .hashCode() is the same, if .equals() == true for two orders.
  *
- */public class Order implements Comparable<Order> {
+ */
+public class Order implements Comparable<Order> {
 	String customer; // Name of the customer
 	String name; // Name of the requested item
-	int count; // Count of the requested items	@Override
+	int count; // Count of the requested items
+
+	@Override
 	public int compareTo(Order o) {
 		if (this.name.compareTo(o.name) < 0) {
 			return -1;
@@ -45,24 +52,42 @@ package jtm.activity09;import java.util.Objects;/*- TODO #1
 				}
 			}
 		}
-	}	public boolean equals(Object obj) {
+	}
+
+	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
 		}		if (obj == null) {
 			return false;
 		}		if (this.getClass() != obj.getClass()) {
 			return false;
-		}		Order o = (Order) obj;
-		return this.compareTo(o) == 0;//		When implementing .equals() method, rely on compareTo() method, as for sane design
+		}
+		
+		Order o = (Order) obj;
+		return this.compareTo(o) == 0;
+		
+//		When implementing .equals() method, rely on compareTo() method, as for sane design
 //		 .equals() == true, if compareTo() == 0 (and vice versa).
-	}	public int hashCode() {
-		return Objects.hash(this.customer, this.name, this.count);//		3. Also Ensure that .hashCode() is the same, if .equals() == true for two orders.
-	}	public Order(String orderer, String itemName, Integer count) {
+	
+	}
+
+	public int hashCode() {
+		return Objects.hash(this.customer, this.name, this.count);
+//		3. Also Ensure that .hashCode() is the same, if .equals() == true for two orders.
+		
+	}
+
+	public Order(String orderer, String itemName, Integer count) {
 		this.customer = orderer;
 		this.name = itemName;
 		this.count = count;
-	}	public String toString() {
+	
+	}
+
+	public String toString() {
 		return this.name + ": " + this.customer + ": " + this.count;
-//			"ItemName: OrdererName: Count"
+		// "ItemName: OrdererName: Count"
 	}
 }
+
+

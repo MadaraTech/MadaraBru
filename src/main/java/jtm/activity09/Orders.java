@@ -1,9 +1,15 @@
-package jtm.activity09;import java.util.Collections;
+package jtm.activity09;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;/*- TODO #2
+import java.util.ListIterator;
+import java.util.Set;
+
+/*- TODO #2
  * Implement Iterator interface with Orders class
  * Hint! Use generic type argument of iterateable items in form: Iterator<Order>
  *
@@ -29,8 +35,12 @@ import java.util.Set;/*- TODO #2
  *  - ItemN: Customer2: 1
  *  Set of orders should be:
  *  - ItemN: Customer1,Customer2: 4
- */public class Orders implements Iterator<Order> {
-	List<Order> list;	/*-
+ */
+public class Orders implements Iterator<Order> {
+	List<Order> list;
+	ListIterator<Order> iter;
+
+	/*-
 	 * TODO #1
 	 * Create data structure to hold:
 	 *   1. some kind of collection of Orders (e.g. some List)
@@ -40,29 +50,52 @@ import java.util.Set;/*- TODO #2
 	 *   2. when constructing list of orders, set number of current order to -1
 	 *      (which is usual approach when working with iterateable collections).	 */
 	public Orders() {
-		this.list = new LinkedList<>();
-	}	public void add(Order item) {
-		this.list.listIterator().add(item);
-	}	@Override
+		this.list = new ArrayList<>();
+		iter = list.listIterator();
+	}
+
+	public void add(Order item) {
+		this.iter.add(item);
+		iter.previous();
+
+	}
+
+	@Override
 	public boolean hasNext() {
-		return this.list.listIterator().hasNext();
-	}	@Override
+		return this.iter.hasNext();
+	}
+
+	@Override
 	public Order next() {
-		return this.list.listIterator().next();
-	}	@Override
+		return this.iter.next();
+	}
+
+	@Override
 	public void remove() {
-		this.list.listIterator().remove();//remove current Order (order got by previous next()) from list, throw IllegalStateException if can't	}	public void sort() {
+		this.iter.remove();
+
+	}
+
+	public void sort() {
 		Collections.sort(list);
-	}	public List<Order> getItemsList(){
+	}
+
+	public List<Order> getItemsList() {
 		return this.list;
-	}	public Set<Order> getItemsSet(){
+
+	}
+
+	public Set<Order> getItemsSet() {
 		return new HashSet<Order>(this.list);
 	}
+
 	public String toString() {
-		return this.list.toString();	}
-}//* When implementing getItemsSet() method, join all requests for the same item from different customers
-//* in following way: if there are two requests:
-//*  - ItemN: Customer1: 3
-//*  - ItemN: Customer2: 1
-//*  Set of orders should be:
-//*  - ItemN: Customer1,Customer2: 4
+		return this.list.toString();
+	}
+}// * When implementing getItemsSet() method, join all requests for the same
+	// item from different customers
+	// * in following way: if there are two requests:
+	// * - ItemN: Customer1: 3
+	// * - ItemN: Customer2: 1
+	// * Set of orders should be:
+	// * - ItemN: Customer1,Customer2: 4
