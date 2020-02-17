@@ -16,9 +16,10 @@ public class Vehicle extends Transport {
 
 	@Override
 	public String move(Road road) {
-		if (road.getClass() != Road.class) {
-			return "Cannot drive on " + road.toString() + " if it is not Road.";
+		if (road.getClass() == Road.class) {
+			super.move(road);
+			return this.getType() + " is driving on " + road.toString() + " with " + this.wheels + " wheels";
 		}
-		return this.getType() + " is driving on " + road.toString() + " with " + this.wheels + " wheels";
+		return "Cannot drive on " + road.toString(); //+ " if it is not Road.";
 	}
 }
