@@ -12,6 +12,10 @@ public class LetsRide {
 	int seatsCount;// bus seats count
 
 	public LetsRide(int busStopCount, int passengersInStop, int seatsCount) {
+		this.busStopCount = busStopCount;
+		this.passengersAtStart = passengersInStop;
+		this.seatsCount = seatsCount;
+		
 		// TODO #1: Set passed values to LetsRide object
 	}
 

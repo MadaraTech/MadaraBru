@@ -1,13 +1,12 @@
-package jtm.activity09;
-
+package jtm.activity09;import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
-
-/*- TODO #2
+import java.util.Set;/*- TODO #2
  * Implement Iterator interface with Orders class
  * Hint! Use generic type argument of iterateable items in form: Iterator<Order>
- * 
+ *
  * TODO #3 Override/implement public methods for Orders class:
  * - Orders()                — create new empty Orders
  * - add(Order item)            — add passed order to the Orders
@@ -18,11 +17,11 @@ import java.util.ListIterator;
  * - Order next()               — get next Order from Orders, throw NoSuchElementException if can't
  * - remove()                   — remove current Order (order got by previous next()) from list, throw IllegalStateException if can't
  * - String toString()          — show list of Orders as a String
- * 
+ *
  * Hints:
  * 1. To convert Orders to String, reuse .toString() method of List.toString()
  * 2. Use built in List.sort() method to sort list of orders
- * 
+ *
  * TODO #4
  * When implementing getItemsSet() method, join all requests for the same item from different customers
  * in following way: if there are two requests:
@@ -30,23 +29,8 @@ import java.util.ListIterator;
  *  - ItemN: Customer2: 1
  *  Set of orders should be:
  *  - ItemN: Customer1,Customer2: 4
- */
-
-public class Orders {
-	
-	private List<Order> orders;
-	private ListIterator<Order> iterator;
-	
-	public Orders() {
-		this.orders = new LinkedList<>();
-		this.iterator = orders.listIterator();
-	}
-	
-	public void add(Order item) {
-		this.iterator.add(item);
-		this.iterator.previous();
-	}
-	/*-
+ */public class Orders implements Iterator<Order> {
+	List<Order> list;	/*-
 	 * TODO #1
 	 * Create data structure to hold:
 	 *   1. some kind of collection of Orders (e.g. some List)
@@ -54,10 +38,31 @@ public class Orders {
 	 *   Hints:
 	 *   1. you can use your own implementation or rely on .iterator() of the List
 	 *   2. when constructing list of orders, set number of current order to -1
-	 *      (which is usual approach when working with iterateable collections).
-	 */
-	public List<Order> getItemsList() {
-		return orders;
-		
+	 *      (which is usual approach when working with iterateable collections).	 */
+	public Orders() {
+		this.list = new LinkedList<>();
+	}	public void add(Order item) {
+		this.list.listIterator().add(item);
+	}	@Override
+	public boolean hasNext() {
+		return this.list.listIterator().hasNext();
+	}	@Override
+	public Order next() {
+		return this.list.listIterator().next();
+	}	@Override
+	public void remove() {
+		this.list.listIterator().remove();//remove current Order (order got by previous next()) from list, throw IllegalStateException if can't	}	public void sort() {
+		Collections.sort(list);
+	}	public List<Order> getItemsList(){
+		return this.list;
+	}	public Set<Order> getItemsSet(){
+		return new HashSet<Order>(this.list);
 	}
-}
+	public String toString() {
+		return this.list.toString();	}
+}//* When implementing getItemsSet() method, join all requests for the same item from different customers
+//* in following way: if there are two requests:
+//*  - ItemN: Customer1: 3
+//*  - ItemN: Customer2: 1
+//*  Set of orders should be:
+//*  - ItemN: Customer1,Customer2: 4
