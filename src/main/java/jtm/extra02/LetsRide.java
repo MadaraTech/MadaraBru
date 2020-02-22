@@ -20,6 +20,15 @@ public class LetsRide {
 	}
 
 	public int passengersAtRouteEnd() {
+		this.passengersCount = this.passengersAtStart;
+		for (int i =1; i <= this.busStopCount; i++){
+			this.passengersCount += i;
+			
+		}
+		if (this.passengersCount > this.seatsCount){
+			this.passengersCount = this.seatsCount;
+		}
+		
 		// TODO #2: Calculate how many passengers will be in bus at the end of
 		// route. Overall passenger count
 		// is incremented by bus stop number. Example: In bus stop No.1
@@ -31,15 +40,20 @@ public class LetsRide {
 
 	public int freeSeats() {
 		int freeSeats = 0;
+		freeSeats = this.getSeatsCount() - this.passengersCount;
 		// TODO #3: Calculate how much seats are free in bus
 		return freeSeats;
 	}
 
 	public boolean isFull() {
 		boolean status = false;
+		if (this.passengersCount == this.seatsCount){
+		status = true;
 		// TODO #4: Check if bus is full.
+		}
 		return status;
-	}
+		}
+	
 
 	public int getBusStopCount() {
 		return busStopCount;
