@@ -24,9 +24,8 @@ public class VendingMachine {
 	public void addProducts(String product, Double price) {
 		if(products == null) {
 			this.products = new HashMap<>();
-		} else {
-			this.products.put(product,price);
 		}
+			this.products.put(product.toLowerCase(),price);
 	}
 	
 	/*
@@ -42,7 +41,7 @@ public class VendingMachine {
 	 * Return balance formatted in a form 0.00$ e.g. 8.50$
 	 */
 	public String balance() {
-		return String.format(".%2f",this.coinsInMachine);
+		return String.format("%.2f$",this.coinsInMachine);
 	}
 	
 	/*
@@ -54,10 +53,15 @@ public class VendingMachine {
 	 * If user does not have enough coins return "Balance not enough" 
 	 */
 	public String chooseProduct(String product) {
-		if(this.coinsInMachine > this.products.get(product)) {
-			return product;
+		if(!this.products.containsKey(product.toLowerCase())){
+			return null;
 		}
-		return null;
+		if(this.coinsInMachine > this.products.get(product.toLowerCase())) {
+			coinsInMachine = coinsInMachine - this.products.get(product.toLowerCase());
+			return product;
+		}else{
+			return "Balance not enough";
+		}
 	}
 	
 	/*
@@ -65,8 +69,8 @@ public class VendingMachine {
 	 * balance to 0.00
 	 */
 	public double ejectCoinsBack() {
+		double change = coinsInMachine;
 		coinsInMachine = 0.0;
-		return coinsInMachine;
+		return change;
 	}
-
 }
